@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhagavad Gita - Kurukshetra Wisdom</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&display=swap');
+        
+        :root {
+            --saffron: #FF9933;
+            --deep-orange: #E65100;
+            /* Adjust core text colors for dark battlefield context */
+            --glass-text-main: #FFFFFF; /* Pure white for primary text */
+            --glass-text-secondary: #E0E0E0; /* Off-white for translations */
+            --glass-title: #FFD54F; /* Bright Amber for Sanskrit and titles */
+        }
+
+        body {
+            margin: 0;
+            /* CRITICAL: Ensure image_0.png is in the same folder and named bg-kurukshetra.jpg */
+            background-image: url('bg-kurukshetra.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Overlay to darken the background slightly to make the scene feel more epic and add context */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.45); /* Increased contrast */
+            z-index: 1;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            /* Enhanced Glassmorphism for darker background: darker tint and stronger blur */
+            background: rgba(33, 33, 33, 0.7); /* Deep gray tint */
+            backdrop-filter: blur(14px); /* Stronger blur for readability */
+            -webkit-backdrop-filter: blur(14px);
+            width: 90%;
+            max-width: 650px;
+            padding: 45px 40px;
+            border-radius: 28px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            text-align: center;
+            border-top: 8px solid var(--saffron);
+            border-bottom: 8px solid var(--deep-orange);
+            overflow: hidden; /* For inner glow effect */
+        }
+        
+        /* Subtle inner glow for the panel */
+        .container::after {
+            content: '';
+            position: absolute;
+            top: -50px; left: -50px;
+            width: calc(100% + 100px);
+            height: calc(100% + 100px);
+            box-shadow: inset 0 0 80px rgba(255, 213, 79, 0.1);
+            pointer-events: none;
+        }
+
+        /* Smooth Transition Layout */
+        .content-wrapper {
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .content-hidden {
+            opacity: 0;
+            transform: translateY(15px);
+        }
+
+        .sanskrit {
+            font-family: 'Noto Sans Devanagari', 'Segoe UI', serif;
+            font-size: 1.7rem; /* Increased size for impact */
+            color: var(--glass-title); /* Bright amber */
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.7;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hindi {
+            font-size: 1.25rem;
+            color: var(--glass-text-main); /* High contrast white */
+            margin-bottom: 20px;
+            font-weight: 500;
+            line-height: 1.6;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .english {
+            font-size: 1.15rem;
+            color: var(--glass-text-secondary); /* Off-white, soft on the eyes */
+            line-height: 1.7;
+            font-style: italic;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .ref {
+            margin-top: 35px;
+            display: inline-block;
+            color: var(--saffron);
+            font-weight: 700;
+            font-size: 1.0rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+        }
+
+        button {
+            margin-top: 40px;
+            background: linear-gradient(135deg, #FFB74D 0%, var(--deep-orange) 100%);
+            color: white;
+            border: none;
+            padding: 16px 45px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(230, 81, 0, 0.4);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        button:hover {
+            transform: scale(1.05) translateY(-3px);
+            box-shadow: 0 15px 30px rgba(230, 81, 0, 0.55);
+        }
+
+        button:active { 
+            transform: scale(0.97) translateY(0); 
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div id="wrapper" class="content-wrapper">
+        <div id="shlok" class="sanskrit">कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।<br>मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि॥</div>
+        <div id="hin" class="hindi">तुम्हारा अधिकार केवल कर्म करने पर है, उसके फलों पर कभी नहीं। इसलिए कर्मों के फल हेतु मत बनो और न ही काम न करने में तुम्हारी आसक्ति हो।</div>
+        <div id="eng" class="english">You have a right to perform your prescribed duties, but you are not entitled to the fruits of your actions. Never consider yourself to be the cause of the results of your activities, nor be attached to inaction.</div>
+        <div id="verseNum" class="ref">CHAPTER 2, VERSE 47</div>
+    </div>
+    
+    <button onclick="changeQuote()">Give Quote</button>
+</div>
+
+<script>
+    // Expanded local failsafe database
+    const gitaData = [
+        { s: "कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।", h: "तुम्हारा अधिकार केवल कर्म करने पर है, फल पर नहीं।", e: "You have a right to perform your duty, but not to the fruits of your actions.", r: "2.47" },
+        { s: "नैनं छिन्दन्ति शस्त्राणि नैनं दहति पावकः।", h: "आत्मा को न शस्त्र काट सकते हैं, न आग जला सकती है।", e: "Weapons cannot shred the soul, nor can fire burn it.", r: "2.23" },
+        { s: "यदा यदा हि धर्मस्य ग्लानिर्भवति भारत।", h: "जब-जब धर्म की हानि होती है, तब-तब मैं अवतार लेता हूँ।", e: "Whenever there is a decline in righteousness, O Bharat, I manifest Myself.", r: "4.7" },
+        { s: "योगस्थः कुरु कर्माणि सङ्गं त्यक्त्वा धनञ्जय।", h: "आसक्ति त्यागकर योग में स्थित होकर कर्म करो।", e: "Perform your duties poised in Yoga, relinquishing all attachment.", r: "2.48" },
+        { s: "क्रोधाद्भवति सम्मोहः सम्मोहात्स्मृतिविभ्रमः।", h: "क्रोध से मोह उत्पन्न होता है और मोह से स्मरण शक्ति का नाश।", e: "From anger comes delusion; from delusion loss of memory.", r: "2.63" },
+        { s: "श्रद्धावॉल्लभते ज्ञानं तत्पर: संयतेन्द्रिय:।", h: "श्रद्धावान मनुष्य ज्ञान प्राप्त करता है।", e: "The man of faith, who is devoted, attains supreme knowledge.", r: "4.39" }
+    ];
+
+    let lastIdx = 0; // The first quote displayed
+
+    function changeQuote() {
+        const wrapper = document.getElementById('wrapper');
+        
+        // Start Fade Out
+        wrapper.classList.add('content-hidden');
+
+        // Wait for fade out animation before updating text
+        setTimeout(() => {
+            let idx;
+            do {
+                idx = Math.floor(Math.random() * gitaData.length);
+            } while (idx === lastIdx);
+            lastIdx = idx;
+
+            const q = gitaData[idx];
+
+            document.getElementById('shlok').innerHTML = q.s;
+            document.getElementById('hin').innerText = q.h;
+            document.getElementById('eng').innerText = q.e;
+            document.getElementById('verseNum').innerText = `CHAPTER ${q.r.split('.')[0]}, VERSE ${q.r.split('.')[1]}`;
+
+            // Fade back in smoothly
+            wrapper.classList.remove('content-hidden');
+        }, 500); // Wait time matches the CSS transition time
+    }
+</script>
+
+</body>
+</html>
